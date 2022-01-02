@@ -5,3 +5,4 @@ for i in range(1,10):
         else:
             print(f'{j} × {i}= {j * i}',end='\t')
     print('')
+    # print(isinstance(i, float))
