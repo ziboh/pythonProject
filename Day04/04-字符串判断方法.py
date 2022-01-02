@@ -20,3 +20,4 @@ str1 = '   d'
 print(str1.isalpha())
 print(str1.isalnum())
 print(str1.isspace())
+# 是是一个注释
