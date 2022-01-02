@@ -6,6 +6,6 @@ plies_number = int(input('请输入需要打印的三角形层数：'))
 for i in range(1,plies_number + 1):
     print(" " * (plies_number-i),end='')
     print('*' * (2*i-1))
-print('-' * 50)
+print('-' * 60)
 
 
