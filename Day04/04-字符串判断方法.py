@@ -16,8 +16,18 @@
 #         break
 #     else:
 #         print('密码格式错误，请输入6位纯数字密码！')
-str1 = '   d'
-print(str1.isalpha())
-print(str1.isalnum())
-print(str1.isspace())
+# str1 = '   d'
+# print(str1.isalpha())
+# print(str1.isalnum())
+# print(str1.isspace())
+# print(str1)
 # 是是一个注释
+
+str1 = 'hello linux and hello linux'
+# 把字符串中所有linux字符替换为python
+print(str1.replace('linux', 'python'))
+# 把字符串中的第一个linux进行替换为python
+print(str1.replace('linux', 'python', 1))
+# 把and字符串替换为&&
+print(str1.replace('and', '&&'))
+print(str1)

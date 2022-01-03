@@ -9,5 +9,3 @@ for i in range(1,plies_number + 1):
 print('-' * 60)
 for i in range(1,plies_number + 1):
     print(('*' * (2*i-1)).center(2 * plies_number -1,' '))
-
-
