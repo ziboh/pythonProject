@@ -2,7 +2,6 @@
 # 生成文件夹中所有文件的路径到txt
 import os
 
-
 def listdir(path, list_name):  # 传入存储的list
     for file in os.listdir(path):
         file_path = os.path.join(path, file)
