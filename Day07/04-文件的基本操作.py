@@ -1,0 +1,10 @@
+f = open("123.txt" , 'r+',encoding='utf-8')
+# f = open("123.txt" , 'r')
+# f.write('周伯华\n')
+
+f.seek(0)
+print(f.read())
+f.write('zbh')
+# lines =f.read()
+# print(lines)
+f.close()
