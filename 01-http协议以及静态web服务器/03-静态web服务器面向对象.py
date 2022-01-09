@@ -1,14 +1,15 @@
 import socket
 import threading
+import sys
 
 class HttpWebServer(object):
-    def __init__(self):
+    def __init__(self,port):
         # 创建TCP套接字
         tcp_server_scoket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # 端口复用
         tcp_server_scoket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
         # 绑定端口号
-        tcp_server_scoket.bind(('', 8000))
+        tcp_server_scoket.bind(('', port))
         # 监听端口
         tcp_server_scoket.listen(128)
         self.tcp_server_scoket = tcp_server_scoket
@@ -20,6 +21,7 @@ class HttpWebServer(object):
             new_socket.close()
             return
         recv_content = recv_data.decode('utf-8')
+        print(recv_content)
         request_list = recv_content.split(' ', maxsplit=2)
         request_path = request_list[1]
         print(request_path)
@@ -66,7 +68,17 @@ class HttpWebServer(object):
 
 
 def main():
-    web_server = HttpWebServer()
+    params = sys.argv
+    if len(params) == 2 and params[1].isdigit():
+        port = int(params[1])
+    elif len(params) == 1:
+        port = 8000
+    else:
+        print('执行代码格式为：pythonx xxx.py 端口号\n'
+              '例如：python3 123.py 90000\n'
+              '也可以不输入端口号，默认为8000')
+        return
+    web_server = HttpWebServer(port)
     web_server.start()
 
 if __name__ == '__main__':

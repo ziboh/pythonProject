@@ -17,6 +17,5 @@ if __name__ == '__main__':
     recv_data = tcp_client_scoket.recv((1024))
     recv_content = recv_data.decode('gbk')
     print(recv_content)
-    a = input('aaa')
     # 关闭tcp连接
     tcp_client_scoket.close()
