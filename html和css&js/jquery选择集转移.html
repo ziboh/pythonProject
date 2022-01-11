@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function (){
+            $div = $('#box1');
+            $div.prev().css({color:'red',fontsize:'25px'});
+            $div.prevAll().css({'text-indent':'50px'});
+            $div.next().css({'color':'green'});
+            $div.nextAll().css({'text-indent':'50px'});
+            $div.siblings().css({'text-decoration': 'underline'});
+            $div.parent().css({'background':'gray'});
+            $div.children().css({'color': 'red'});
+            $div.find('.sp1').css({'color': 'green'});
+        })
+    </script>
+</head>
+<body>
+    <p>哈哈</p>
+    <h3>我是一个3级标题</h3>
+    <div id="box1">我是<span class="sp1">一个</span><span>容器</span>标签</div>
+    <h3>我是一个3级标题</h3>
+    <p>哈哈</p>
+</body>
+</html>
+

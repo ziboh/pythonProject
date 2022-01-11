@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function (){
+            $p = $('p');
+            var $text = $('#txt1')
+            var $px = $p.css('font-size')
+            alert($px)
+            $p.css({'font-size':'30px','background':'green'})
+            var $name = $text.prop('type')
+            alert($name)
+
+            $text.prop({'value': '张三'})
+        })
+    </script>
+</head>
+<body>
+    <p>哈哈，我是一个段落标签！</p>
+    <input type="text" name="username" id="txt1">
+</body>
+</html>

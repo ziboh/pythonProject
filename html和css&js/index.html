@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- 双标签 -->
+    <h1>我是第一级标题</h1>
+    <h6>我是第六级标题</h6>
+    <div>我是一个容器标签，可以包裹其他内容</div>
+    <p>我是一个段落标签</p>
+    <!-- 单标签：只要一个标签 -->
+    <hr>
+    <img src="imgs/logo.png"alt='图片加载失败未显示'>
+    <br>
+    <img src="imgs/logo1.png"alt='图片加载失败未显示'>
+
+    <!-- 带属性的标签 -->
+    <a href="http://baidu.com">百度</a>
+
+    <!-- 标签可以嵌套，不能交叉嵌套 -->
+    <div>
+        <p>我是一个段落标签</p>
+    </div>
+    <!-- 无序列表标签 -->
+    <ul>
+        <li>苹果</li>
+        <li>香蕉</li>
+    </ul>
+    <!-- 有序列表标签 -->
+    <ol>
+        <li>第一步</li>
+        <li>第二步</li>
+    </ol>
+    <table style="border: 1px solid black;border-collapse: collapse;">
+        <tr>
+            <th style="border: 1px solid black">姓名</th>
+            <th style="border: 1px solid black">年龄</th>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black">周伯华</td>
+            <td style="border: 1px solid black">21</td>
+        </tr>
+    </table>
+    <!-- 表单标签 -->
+    <form>
+        <p>
+            <label for="name">用户名：</label>
+            <input type="text" id="name">
+        </p>
+
+        <p>
+            <label>密码：</label>
+            <input type="password">
+        </p>
+
+        <p>
+            <label>性别：</label>
+            <input type="radio">男
+            <input type="radio">女
+        </p>
+
+        <p>
+            <label>爱好：</label>
+            <input type="checkbox">学习
+            <input type="checkbox">上课
+            <input type="checkbox">游戏
+        </p>
+
+        <p>
+            <label>照片</label>
+            <input type="file">
+        </p>
+
+        <p>
+            <label>个人描述：</label>
+            <textarea ></textarea>
+        </p>
+
+        
+        <p>        
+            <label>籍贯：</label>
+            <select>
+                <option>北京</option>
+                <option>广东</option>
+                <option>湖北</option>
+                <option>湖南</option>
+            </select>
+        </p>
+        <p>
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+        <input type="button" value="按钮">
+        </p>
+
+
+    </form>
+
+</body>
+</html>

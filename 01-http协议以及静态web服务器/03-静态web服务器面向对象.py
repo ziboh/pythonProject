@@ -1,9 +1,11 @@
 import socket
 import threading
 import sys
+from urllib.parse import quote
+
 
 class HttpWebServer(object):
-    def __init__(self,port):
+    def __init__(self, port):
         # 创建TCP套接字
         tcp_server_scoket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # 端口复用
@@ -29,7 +31,8 @@ class HttpWebServer(object):
             request_path = '/index.html'
 
         try:
-            with open("static" + request_path, 'rb') as file:
+            decode_data = quote(request_path)
+            with open("static" + decode_data, 'rb') as file:
                 file_data = file.read()
 
         except FileNotFoundError as a:
@@ -43,6 +46,7 @@ class HttpWebServer(object):
             response_body = file_data
 
             response = (response_line + response_header + '\r\n').encode('utf-8') + response_body
+
 
             new_socket.send(response)
         else:
@@ -81,8 +85,9 @@ def main():
     web_server = HttpWebServer(port)
     web_server.start()
 
+
 if __name__ == '__main__':
     main()
-        # web_thread = threading.Thread(target=web_serve,args=(new_socket,ip_addr))
-        # web_thread.setDaemon(True)
-        # web_thread.start()
+    # web_thread = threading.Thread(target=web_serve,args=(new_socket,ip_addr))
+    # web_thread.setDaemon(True)
+    # web_thread.start()

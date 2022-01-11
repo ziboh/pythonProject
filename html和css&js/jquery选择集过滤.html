@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function (){
+            var $divs = $ ('div');
+            $divs.has('p').css({'color':'red'})
+            $divs.eq(1).css({background:'blue'})
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <p>哈哈</p>
+    </div>
+    <div>
+        <input type="button" value="按钮">
+    </div>
+</body>
+</html>

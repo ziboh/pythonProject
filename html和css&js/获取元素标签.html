@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       window.onload = function(){
+            var oP = document.getElementById('p1');
+            alert(oP);
+        };
+    </script>
+</head>
+<body>
+    <p id="p1">哈哈，我是一个段落标签！</p>
+</body>
+</html>
+<!-- 这种写法不推荐，知道即可，就是等标签初始化结束后再获取 -->
+<!-- <script>
+    var oP = document.getElementById('p1');
+    alert(oP)
+</script> -->

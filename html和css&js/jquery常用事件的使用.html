@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            var $lis = $('ul li');
+            var $btn = $('#btn1');
+            var $text = $('#txt1');
+            var $div = $('div');
+            $lis.click(function(){
+                // this.style.color = 'red';
+                $(this).css({'color':'blue'});
+                alert($(this).index());
+            });
+
+            $btn.click(function(){
+                alert($text.val());
+            });
+            $text.focus(function(){
+                $(this).css({'background':'red'});
+            });
+            $text.blur(function(){
+                $(this).css({'background':'white'});
+            });
+            $div.mouseover(function(){
+                $(this).css({'background':'green'});
+            });
+            $div.mouseout(function(){
+                $(this).css({'background':'white'});
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>苹果</li>
+            <li>鸭梨</li>
+            <li>香蕉</li>
+        </ul>
+        <input type="text" name="" id="txt1">
+        <input type="button" id = 'btn1' value='你点我'>
+    </div>
+
+</body>
+</html>

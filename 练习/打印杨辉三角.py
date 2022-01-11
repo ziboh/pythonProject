@@ -19,9 +19,12 @@ def func(num):
 
 
 def main(num):
+    max_num = func(num)[int(num//2)]
+    print(max_num)
     for i in range(1,num+1):
         a = func(i)
         count = 0
+        # if max_num < 100:
         print(' ' * (num - i)*2,end='')
         for j in a:
             if count + 1 == i:
@@ -33,5 +36,6 @@ def main(num):
                 print(j,end='  ')
                 count += 1
 
+
 if __name__ == '__main__':
-    main(6)
+    main(8)
