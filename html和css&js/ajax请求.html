@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        // $.ajax({
+        //     url:"data.json",
+        //     type:"GET",
+        //     dataType:"JSON",
+        //     success:function(data){
+        //         console.log(data.title)
+        //     },
+        //     error:function(){
+        //     console.log('网络异常')
+        //     },
+        //     async:true
+        // });
+        $.post('data.json',{"name":"李四"},function(data){
+            alert(data.title)
+        },"JSON").error(function(){
+            alert(网络错误);
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

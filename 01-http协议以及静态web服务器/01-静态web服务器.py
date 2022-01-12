@@ -64,3 +64,10 @@ if __name__ == '__main__':
         # web_thread = threading.Thread(target=web_serve,args=(new_socket,ip_addr))
         # web_thread.setDaemon(True)
         # web_thread.start()
+
+
+
+
+from urllib.parse import unquote
+rawurl='https://www.baidu.com/s?tn=68018901_2_oem_dg&ie=utf-8&word=%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F'
+text = unquote(rawurl, 'utf-8')

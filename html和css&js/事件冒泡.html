@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            var $btn = $('#btn1');
+        var $div = $('div')
+        $btn.click(function(){
+            alert('我是按钮');
+            return false;
+        
+        // $div.click(function(){
+        //     alert('我的div');
+        // });
+        });
+        $ul = $('div ul');
+        $ul.delegate('li','click',function(){
+            $(this).css({'color':'red'});
+        });
+    });
+    </script>
+</head>
+<body>
+    <div>
+        <p>哈哈</p>
+        <input type="button" value="按钮" id="btn1">
+        <ul>
+            <li>哈哈</li>
+            <li>嘻嘻</li>
+            <li>美滋滋</li>
+        </ul>
+    </div>
+
+</body>
+</html>

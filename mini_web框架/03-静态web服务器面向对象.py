@@ -2,6 +2,8 @@ import socket
 import threading
 import sys
 from urllib.parse import unquote
+import Framework
+
 
 class HttpWebServer(object):
     def __init__(self, port):
@@ -22,44 +24,60 @@ class HttpWebServer(object):
             new_socket.close()
             return
         recv_content = recv_data.decode('utf-8')
-        print(recv_content)
+        # print(recv_content)
         request_list = recv_content.split(' ', maxsplit=2)
         request_path = request_list[1]
         request_path = unquote(request_path, 'utf-8')
         print(request_path)
+
         if request_path == '/':
             request_path = '/index.html'
-
-        try:
-            with open("static" + request_path, 'rb') as file:
-                file_data = file.read()
-
-        except FileNotFoundError as a:
-            with open('static/error.html', 'rb') as file:
-                file_data = file.read()
-                print(a)
-                response_line = 'HTTP/1.1 404 Not Found\r\n'
+        if request_path.endswith(".html"):
+            env = {
+                "request_path":request_path
+            }
+            status,response_header,data = Framework.handle_request(env)
+            # print(status,response_header,date)
+            response_line = 'HTTP/1.1 %s\r\n' % status
             # 响应头
-            response_header = 'Server:pws/1.0\r\n'
+            response_header = ''
+            for response in response_header:
+                response_header += "s%: s%\r\n" % response
             # 响应体
-            response_body = file_data
-
-            response = (response_line + response_header + '\r\n').encode('utf-8') + response_body
-
-
+            response_body = data
+            response = (response_line + response_header + '\r\n' + response_body).encode('utf-8')
             new_socket.send(response)
         else:
-            response_line = 'HTTP/1.1 200 OK\r\n'
-            # 响应头
-            response_header = 'Server:pws/1.0\r\n'
-            # 响应体
-            response_body = file_data
+            try:
+                with open("static" + request_path, 'rb') as file:
+                    file_data = file.read()
 
-            response = (response_line + response_header + '\r\n').encode('utf-8') + response_body
+            except FileNotFoundError as a:
+                with open('static/error.html', 'rb') as file:
+                    file_data = file.read()
+                    print(a)
+                    response_line = 'HTTP/1.1 404 Not Found\r\n'
+                # 响应头
+                response_header = 'Server: pws/1.0\r\n'
+                # 响应体
+                response_body = file_data
 
-            new_socket.send(response)
-        finally:
-            new_socket.close()
+                response = (response_line + response_header + '\r\n').encode('utf-8') + response_body
+
+
+                new_socket.send(response)
+            else:
+                response_line = 'HTTP/1.1 200 OK\r\n'
+                # 响应头
+                response_header = 'Server:pws/1.0\r\n'
+                # 响应体
+                response_body = file_data
+
+                response = (response_line + response_header + '\r\n').encode('utf-8') + response_body
+
+                new_socket.send(response)
+            finally:
+                new_socket.close()
 
     def start(self):
         while True:
